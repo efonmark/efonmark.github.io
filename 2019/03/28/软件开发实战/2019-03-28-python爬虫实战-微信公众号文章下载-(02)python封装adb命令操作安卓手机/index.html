@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>python爬虫实战-微信公众号文章下载-(02)python封装adb命令操作安卓手机 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一番码客 : 效率软件推荐。http:&#x2F;&#x2F;www.efonmark.com   让大家久等了，来不及解释（jiaobian）了，让我们上车吧。正如一番在这个系列文章的（00）篇中所说，一番在做1.0版本的时候用到了一些取巧的方法，其中就包括python通过adb操作手机。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python爬虫实战-微信公众号文章下载-(02)python封装adb命令操作安卓手机">
+<meta property="og:url" content="http://www.efonmark.com/2019/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-28-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(02)python%E5%B0%81%E8%A3%85adb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一番码客 : 效率软件推荐。http:&#x2F;&#x2F;www.efonmark.com   让大家久等了，来不及解释（jiaobian）了，让我们上车吧。正如一番在这个系列文章的（00）篇中所说，一番在做1.0版本的时候用到了一些取巧的方法，其中就包括python通过adb操作手机。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.efonmark.com/2019/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-28-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(02)python%E5%B0%81%E8%A3%85adb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/shangche.jpeg">
+<meta property="og:image" content="http://www.efonmark.com/2019/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-28-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(02)python%E5%B0%81%E8%A3%85adb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/01.png">
+<meta property="article:published_time" content="2019-03-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-15T04:24:16.979Z">
+<meta property="article:author" content="efon-fighting">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.efonmark.com/2019/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-28-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(02)python%E5%B0%81%E8%A3%85adb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/shangche.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.efonmark.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-软件开发实战/2019-03-28-python爬虫实战-微信公众号文章下载-(02)python封装adb命令操作安卓手机" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-28-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(02)python%E5%B0%81%E8%A3%85adb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/" class="article-date">
+  <time datetime="2019-03-27T16:00:00.000Z" itemprop="datePublished">2019-03-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/">软件开发实战</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python爬虫实战-微信公众号文章下载-(02)python封装adb命令操作安卓手机
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong>一番码客 : 效率软件推荐。</strong><br><strong><a href="http://www.efonmark.com/">http://www.efonmark.com</a></strong> </p>
+</blockquote>
+<p>让大家久等了，来不及解释（jiaobian）了，让我们上车吧。<br><img src="/2019/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-28-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(02)python%E5%B0%81%E8%A3%85adb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/shangche.jpeg"><br>正如一番在这个系列文章的（00）篇中所说，一番在做1.0版本的时候用到了一些取巧的方法，其中就包括python通过adb操作手机。  </p>
+<span id="more"></span>
+<p>之前微信第一款小程序游戏“跳一跳”突然火起来的时候，办公室午休的时候掀起了一股跳一跳的热潮，这个时候也是一番接触python不久。在网上很快就有小伙伴用python做了一个外挂，并传在了github上开源开发。这其中的原理就用到了adb操作和图像处理，鉴于python的使用群体庞大，这个项目也得到了持续的优化和更新，操作对于新手非常友善，也非常值得新手用来学习，有趣又实用（有兴趣的同学，公众号后台回复“跳一跳”获取github源码地址）。</p>
+<h2 id="ADB的使用方法及常见命令"><a href="#ADB的使用方法及常见命令" class="headerlink" title="ADB的使用方法及常见命令"></a>ADB的使用方法及常见命令</h2><p>adb的基本使用方法和常见的命令，接触过安卓调试的同学应该都会。这里给出一个一番觉得比较简洁明了的文章，不了解ADB的同学可以先学习下。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzIzMDU5MDg4OA==&mid=2247484837&idx=1&sn=1d9e435bbfc06b7eb8fc527fc175c879&scene=0#wechat_redirect">ADB命令集锦</a>  </li>
+<li><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&mid=2650662207&idx=1&sn=ac582fe052fb8ad12d7c3f8e5a140c98&scene=0#wechat_redirect">你应该知道的一些 ADB 命令</a>  </li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/good123_2014/article/details/79107765">Android adb shell input 命令详解</a>  <blockquote>
+<p>这里我们重点提一下<strong>“adb shell input”</strong> ，这个命令是我们模拟手动操作用的最频繁的一个命令，主要是<strong>模拟输入文本、按键事件、点击、滑动</strong>等操作，我们在用python封装的时候会重点用到，接下来的代码中大家也会看到。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="python-adb操作封装"><a href="#python-adb操作封装" class="headerlink" title="python adb操作封装"></a>python adb操作封装</h2><p>首先来看下一番的1.0版本为了采集公众号历史文章的标题和链接，封装了哪些adb操作。<br><img src="/2019/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-28-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(02)python%E5%B0%81%E8%A3%85adb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/01.png"><br>这里一番将adb 操作封装为一个AdbOpt类，<strong>init</strong>() 函数就是创建类的对象时自动执行的初始化函数，类似C++里的构造函数，通常我们在这个函数里做一些类变量的初始化动作。代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">def __init__(self,phonePara):</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    @ adb   工具类初始化，检查adb路径与环境</span><br><span class="line">    @</span><br><span class="line">    @ return</span><br><span class="line">    @</span><br><span class="line">    @ param</span><br><span class="line">    @   phonePara 用于指定手机相关参数</span><br><span class="line">    @ exception</span><br><span class="line">    @ notice</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    print(phonePara)</span><br><span class="line">    self.deviceId = phonePara[&#x27;serial&#x27;] #创建类之后需要赋值 deviceId</span><br><span class="line"></span><br><span class="line">    if platform.system() == &#x27;Windows&#x27;:</span><br><span class="line">        adbToolPath = os.path.join(&quot;adb&quot;)</span><br><span class="line">        self.option = &#x27;&#x27;</span><br><span class="line">    elif platform.system() == &#x27;Linux&#x27;:</span><br><span class="line">        adbToolPath = adbPara[&#x27;pcPara&#x27;][&#x27;linux&#x27;][&#x27;adbPath&#x27;]</span><br><span class="line">        self.option = &#x27; -s &#x27; + self.deviceId</span><br><span class="line">    else:</span><br><span class="line">        print(&#x27;Host OS is not compatible.\n&#x27;)</span><br><span class="line">        exit(1)</span><br><span class="line"></span><br><span class="line">    print(&#x27;adbToolPath:&#x27; + adbToolPath)</span><br><span class="line">    try:</span><br><span class="line">        subprocess.Popen(</span><br><span class="line">            [adbToolPath], stdout=subprocess.PIPE, stderr=subprocess.PIPE)</span><br><span class="line">        self.adbToolPath = adbToolPath</span><br><span class="line">    except OSError:</span><br><span class="line">        print(&#x27;请安装 ADB 及驱动并配置环境变量&#x27;)</span><br><span class="line">        exit(1)</span><br></pre></td></tr></table></figure>
+<p>这里phonePara，是为了适配多部手机，让一台PC可以同时adb操作多部手机（虽然后面没有用上）。为了存储每部手机的不同参数，和windows、linux的adb路径参数，一番建了一个这个文件里的adbPara变量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">adbPara = &#123;</span><br><span class="line">    &#x27;phonePara&#x27;: &#123;</span><br><span class="line">        &#x27;HuaweiMate9&#x27;: &#123;</span><br><span class="line">            &#x27;serial&#x27;: &#x27;3HX0217601006195&#x27;,</span><br><span class="line">            &#x27;screenSize&#x27;: [1080, 1920]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#x27;meizuPro5&#x27;: &#123;</span><br><span class="line">            &#x27;serial&#x27;: &#x27;860BCNA224M5&#x27;,</span><br><span class="line">            &#x27;screenSize&#x27;: [1080, 1920]</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &#x27;pcPara&#x27;: &#123;</span><br><span class="line">        &#x27;windows&#x27;: &#123;</span><br><span class="line">            &#x27;adbPath&#x27;: &#x27;&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#x27;linux&#x27;: &#123;</span><br><span class="line">            &#x27;adbPath&#x27;: &#x27;/home/efonfighting/Android/Sdk/platform-tools/adb&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面就不一一贴代码了，解释下每个函数的封装，如果需要封装的源码，后台回复“adb”获取。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">testDevice(self):</span><br><span class="line">  @ 查看是否有设备连接</span><br><span class="line"></span><br><span class="line">getScreenSize(self):</span><br><span class="line">  @ adb 获取屏幕分辨率</span><br><span class="line">  @ return  屏幕分辨率（eg. &quot;Physical size: 1080x1920 Override size: 720x1280&quot;）</span><br><span class="line"></span><br><span class="line">getScreenDensity(self):</span><br><span class="line">  @ 获取屏幕DPI（每英寸点数）</span><br><span class="line"></span><br><span class="line">getDeviceInfo(self):</span><br><span class="line">  @ 获取ro.product.device</span><br><span class="line"></span><br><span class="line">getDeviceOsInfo(self):</span><br><span class="line">  @ 获取ro.build.version.release</span><br><span class="line"></span><br><span class="line">dumpDeviceInfo(self):</span><br><span class="line">  @ 检查设备连接状态，显示设备信息</span><br><span class="line"></span><br><span class="line">getScreenCapSize(self):</span><br><span class="line">  @ adb 获取截屏图片分辨率</span><br><span class="line">  @ return  eg.[720,1280]</span><br><span class="line"></span><br><span class="line">runAdbCmd(self, rawCommand):</span><br><span class="line">  @ 执行任意adb命令</span><br><span class="line"></span><br><span class="line">pullScreenShot(self, savePath):</span><br><span class="line">  @ 获取屏幕截图</span><br><span class="line">  @ adb shell screencap -p /sdcard/screencap.png;adb pull /sdcard/screencap.png ~/Desktop</span><br><span class="line"></span><br><span class="line">adbTap(self, x, y):</span><br><span class="line">  @ 单击任意坐标点(x,y)</span><br><span class="line"></span><br><span class="line">adbSwipe(self, x1, y1, x2, y2, ms, delay):</span><br><span class="line">  @ 从一点滑动到另一点</span><br><span class="line">  @ param</span><br><span class="line">  @   delay:swipe后delay多少秒返回，等待某些动作缓冲完成</span><br><span class="line"></span><br><span class="line">drawCircle(self, img, pos):</span><br><span class="line">    @ 在任意坐标点(x,y)画圆</span><br><span class="line"></span><br><span class="line">FindFlgFromCap(self, flgPath, confidenceVTH, blockEn, findDelay):</span><br><span class="line">  @ 在图片中找出特征图案</span><br><span class="line">  @ return 特征图案中心坐标(x,y) or None</span><br><span class="line">  @ param</span><br><span class="line">  @    confidenceVTH:0.0-1.0</span><br><span class="line">  @    blockEn:是否阻塞等待flg出现</span><br><span class="line">  @    findDelay: 找到flg后延时findDelay秒后再返回</span><br><span class="line">  @ notice    必须像素点匹配</span><br><span class="line"></span><br><span class="line">def tapFlgFromPic(self, flgPath, confidenceVTH, blockEn, findDelay, tapDelay):</span><br><span class="line">  @ 单击图片中的特征图案</span><br><span class="line">  @ return True/False</span><br><span class="line">  @ param</span><br><span class="line">  @       blockEn(bool):是否阻塞等待flg出现</span><br><span class="line">  @       findDelay:找到flg后延时findDelay秒后再点击flg</span><br><span class="line">  @       delayTime:tap后延时时间返回，做某些动作的缓冲时间，单位秒</span><br><span class="line">  @ notice    必须像素点匹配</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>可以看到，为什么有一个runAdbCmd命令可以执行任意adb命令，一番还要单独封装一些常用的比如点击、滑屏等操作呢，其实这是为了方便后续要改动一个操作时，只需要改动这个这个封装的函数就行了，而不必每个用到这个操作的地方都去改动，这也是封装的一个思想。  </p>
+</li>
+<li><p>还有里面封装了一些点击特殊图案的操作，这里涉及到aircv库的操作，这里单独将FindFlgFromCap这个函数提出来说一下。<br>这个函数可以帮我们找到图片中的目标图案，但前提是需要先将这个目标图案在本地保存一个，以作对比，一番估计这个find_template函数的实现原理就是简单的像素点对比。<br>最后会返回一个列表，列表里包括目标图案在搜索源图案中的中心位置以及相似度confidence。<br>如果找到多个目标图案则返回多个列表。这个可以帮助我们确定一些特定图案的位置，然后模拟点击，比如公众号里的“复制连接”图标等。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">def FindFlgFromCap(self, flgPath, confidenceVTH, blockEn, findDelay):</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    @ 在图片中找出特征图案</span><br><span class="line">    @</span><br><span class="line">    @ return 特征图案中心坐标(x,y) or None</span><br><span class="line">    @</span><br><span class="line">    @ param</span><br><span class="line">    @    confidenceVTH:0.0-1.0</span><br><span class="line">    @    blockEn:是否阻塞等待flg出现</span><br><span class="line">    @    findDelay: 找到flg后延时findDelay秒后再返回</span><br><span class="line">    @ exception</span><br><span class="line">    @ notice    必须像素点匹配</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    #process = subprocess.getoutput(&#x27;date +%m%d%H%M%S&#x27;)</span><br><span class="line">    #date = process.replace(&#x27;\n&#x27;,&#x27;&#x27;)</span><br><span class="line">    date = &#x27;&#x27; #不保存时间戳</span><br><span class="line">    while True:</span><br><span class="line">        screenshotPath = self.pullScreenShot(&#x27;out/screencap&#x27; + date + &#x27;.png&#x27;)  # eg. out/cap1006120638.png</span><br><span class="line">        print(screenshotPath)</span><br><span class="line">        imsrc = ac.imread(screenshotPath)</span><br><span class="line">        imdst = ac.imread(flgPath)</span><br><span class="line">        pos = ac.find_template(imsrc, imdst)</span><br><span class="line">        if ((pos != None) and (pos[&#x27;confidence&#x27;] &gt; confidenceVTH)):</span><br><span class="line">            print(&#x27;find a &#123;para1&#125;:&#123;para2&#125;&#x27;.format(para1=flgPath,para2=pos))</span><br><span class="line">            flgCenterPosInt = (int(pos[&#x27;result&#x27;][0]), int(pos[&#x27;result&#x27;][1]))</span><br><span class="line">            time.sleep(findDelay)</span><br><span class="line">            # draw_circle(imsrc, circleCenterPosInt)  # draw circle</span><br><span class="line">            #str(input(&#x27;确定开始下一步？[y/n]:&#x27;))</span><br><span class="line">            return flgCenterPosInt</span><br><span class="line">        elif (blockEn == False):</span><br><span class="line">            print(&#x27;Do not find &#123;para1&#125;\n&#x27;.format(para1=flgPath))</span><br><span class="line">            return None</span><br><span class="line">        else:</span><br><span class="line">            print(&#x27;wait for &#123;para1&#125;\n&#x27;.format(para1=flgPath))</span><br><span class="line">            time.sleep(1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>好了，python对adb的封装就讲到这里，期待你的留言和获取源码哦。我们下期见！</p>
+<blockquote>
+<p><strong>趋势不会因为个别的吝啬与懒惰而停止向前的车轮，所以迈开脚步，一起赶路。</strong>  </p>
+</blockquote>
+<blockquote>
+<p><strong>微信公众号：一番码客</strong><br><strong>官方网站： <a href="http://www.efonmark.com/">http://www.efonmark.com</a></strong></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.efonmark.com/2019/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-28-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(02)python%E5%B0%81%E8%A3%85adb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/" data-id="clcwvqiy60003dkvaf5b694bt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/13/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-13-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(03)python%E5%BC%80%E6%BA%90%E5%BA%93%E5%81%9A%E5%9B%BE%E6%96%87%E8%AF%86%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python爬虫实战-微信公众号文章下载-(03)python开源库做图文识别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/16/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-16-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(01)pycharm%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python爬虫实战-微信公众号文章下载-(01)pycharm使用与工程搭建</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/">软件开发实战</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/02/%E9%A6%96%E9%A1%B5/readme/">一番码客</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/01/%E9%A6%96%E9%A1%B5/efonmark_tools/">一番码客-极客工具</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/13/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-13-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(03)python%E5%BC%80%E6%BA%90%E5%BA%93%E5%81%9A%E5%9B%BE%E6%96%87%E8%AF%86%E5%88%AB/">python爬虫实战-微信公众号文章下载-(03)python开源库做图文识别</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/28/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-28-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(02)python%E5%B0%81%E8%A3%85adb%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/">python爬虫实战-微信公众号文章下载-(02)python封装adb命令操作安卓手机</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/16/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-16-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(01)pycharm%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/">python爬虫实战-微信公众号文章下载-(01)pycharm使用与工程搭建</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 efon-fighting<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
