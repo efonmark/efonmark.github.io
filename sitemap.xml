@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.efonmark.com/2019/04/30/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-30-VSCode%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2023-03-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.efonmark.com/2019/03/16/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-03-16-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(01)pycharm%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2023-01-15</lastmod>
@@ -49,7 +58,7 @@
 
   <url>
     <loc>http://www.efonmark.com/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -59,7 +68,14 @@
   
   <url>
     <loc>http://www.efonmark.com/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2023-01-15</lastmod>
+    <lastmod>2023-03-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.efonmark.com/categories/linux%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2023-03-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

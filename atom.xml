@@ -70,6 +70,25 @@
   </entry>
   
   <entry>
+    <title>VSCode配置与使用</title>
+    <link href="http://www.efonmark.com/2019/04/30/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-30-VSCode%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+    <id>http://www.efonmark.com/2019/04/30/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-30-VSCode%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
+    <published>2019-04-29T16:00:00.000Z</published>
+    <updated>2023-03-04T08:00:54.298Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><span id="more"></span><blockquote><p><strong>一番码客 : <a href="http://www.efonmark.com/">www.efonmark.com</a></strong><br>专注数据挖掘与聚合，分享数据挖掘的软件工具与开发技术。</p></blockquote><hr><h2 id="汉化-设置中文"><a href="#汉化-设置中文" class="headerlink" title="汉化(设置中文)"></a>汉化(设置中文)</h2><ol><li>在VSCode中按下快捷键“Ctrl + Shift + P”（显示命令面板 Show Command Palette）。  </li><li>命令面板中输入“Configure Display Language”，回车进入。<br><img src="/2019/04/30/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-30-VSCode%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/vscode_chi_01.png"></li><li>选择”install additional languages…”<br><img src="/2019/04/30/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-30-VSCode%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/vscode_chi_02.png"></li><li>左边边侧栏选择Chinese（Simplified），点击install。<br><img src="/2019/04/30/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-30-VSCode%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/vscode_chi_03.png"></li><li>按下快捷键“Ctrl + Shift + P”，输入“Configure Display Language”，回车进入，下拉菜单中选择点击“zh-cn”,提示重启，选择重启<br><img src="/2019/04/30/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-30-VSCode%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/vscode_chi_02.png"></li></ol><p><img src="/2019/04/30/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-30-VSCode%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/vscode_chi_04.png"></p><p>重启后发现成功了。切换其他语言步骤类似。  </p><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><blockquote><p>快速复制当前行到下一行：shift+alt+↓</p></blockquote><h2 id="显示视图"><a href="#显示视图" class="headerlink" title="显示视图"></a>显示视图</h2><p>显示所有函数列表：左侧显示大纲</p><h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="Markdown-All-in-One"><a href="#Markdown-All-in-One" class="headerlink" title="Markdown All in One"></a>Markdown All in One</h3><ol><li>hot key</li></ol><table><thead><tr><th align="center">Key</th><th align="center">Command</th></tr></thead><tbody><tr><td align="center">Ctrl + B</td><td align="center">Toggle bold</td></tr><tr><td align="center">Ctrl + I</td><td align="center">Toggle italic</td></tr><tr><td align="center">Ctrl + Shift + ]</td><td align="center">Toggle heading (uplevel)</td></tr><tr><td align="center">Ctrl + Shift + [</td><td align="center">Toggle heading (downlevel)</td></tr><tr><td align="center">Ctrl + M</td><td align="center">Toggle math environment</td></tr><tr><td align="center">Alt + C</td><td align="center">Check&#x2F;Uncheck task list item</td></tr><tr><td align="center">Ctrl + Shift + V</td><td align="center">Toggle preview</td></tr><tr><td align="center">Ctrl + K V</td><td align="center">Toggle preview to side</td></tr></tbody></table>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="linux及工具使用" scheme="http://www.efonmark.com/categories/linux%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>python爬虫实战-微信公众号文章下载-(03)python开源库做图文识别</title>
     <link href="http://www.efonmark.com/2019/04/13/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-13-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(03)python%E5%BC%80%E6%BA%90%E5%BA%93%E5%81%9A%E5%9B%BE%E6%96%87%E8%AF%86%E5%88%AB/"/>
     <id>http://www.efonmark.com/2019/04/13/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-13-python%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E4%B8%8B%E8%BD%BD-(03)python%E5%BC%80%E6%BA%90%E5%BA%93%E5%81%9A%E5%9B%BE%E6%96%87%E8%AF%86%E5%88%AB/</id>
