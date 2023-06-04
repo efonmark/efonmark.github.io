@@ -4,7 +4,7 @@
   <url>
     <loc>http://www.efonmark.com/2019/04/30/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/2019-04-30-VSCode%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</loc>
     
-    <lastmod>2023-03-04</lastmod>
+    <lastmod>2023-04-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -58,7 +58,7 @@
 
   <url>
     <loc>http://www.efonmark.com/</loc>
-    <lastmod>2023-03-04</lastmod>
+    <lastmod>2023-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -68,14 +68,7 @@
   
   <url>
     <loc>http://www.efonmark.com/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</loc>
-    <lastmod>2023-03-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.efonmark.com/categories/linux%E5%8F%8A%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2023-03-04</lastmod>
+    <lastmod>2023-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
